@@ -25,56 +25,152 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: const Center(
+            child: Text(
+              'SGD Stock',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+            ),
+          ),
+        ),
         body: SafeArea(
             child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  border: Border.all(color: Colors.white)),
-              height: 80.0,
-              // width: 300.0,
-              // padding: EdgeInsets.all(30.0),
-              margin: EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
-// color: Colors.white,
-              child: Center(
-                child: Text('Container 1'),
+            const Center(
+              child: Text(
+                'Sign Up',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
             ),
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  border: Border.all(color: Colors.black)),
-              height: 80.0,
-              // width: 300.0,
-              // padding: EdgeInsets.all(30.0),
-              margin: EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
-// color: Colors.white,
-              child: Center(
-                child: Text('Container 2'),
+            const Center(
+              child: Text(
+                'Create account by filling up all the below details',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 10,
+                    color: Colors.grey),
               ),
             ),
+            //Full Name TextField
             Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  border: Border.all(color: Colors.yellow)),
-              height: 80.0,
-              // width: 300.0,
-              // padding: EdgeInsets.all(30.0),
-              margin: EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
-// color: Colors.white,
-              child: Center(
-                child: Text('Container 3'),
+              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+              child: const TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Enter Full Name*',
+                ),
               ),
             ),
+            //Email Address TextField
+            Container(
+              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+              child: const TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Enter Email Address*',
+                ),
+              ),
+            ),
+            //Password TextField
+            Container(
+              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+              child: const TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Enter Password*',
+                ),
+              ),
+            ),
+            //Confirm Password TextField
+            Container(
+              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+              child: const TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Confirm Password*',
+                ),
+              ),
+            ),
+            // T & Cs Label
+            Container(
+                margin: const EdgeInsets.only(left: 10.0, top: 0.0, right: 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Checkbox(
+                      checkColor: Colors.white,
+                      // fillColor: Colors.red,
+                      value: true,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          var isChecked = value!;
+                        });
+                      },
+                    ),
+                    const Text(
+                      'I have read and agreed to the Terms & Conditions',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 12,
+                          color: Colors.grey),
+                    ),
+                  ],
+                )),
+            //Sign up Button
+            Container(
+              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+              width: 280.0,
+              child: ElevatedButton(
+                // onPressed: () {
+                //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                //       content: Text('You clicked ElevatedButton.')));
+                // },
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('You clicked SignUp.')));
+                },
+                child: const Text('Sign up'),
+              ),
+            ),
+            //Sign In Button
+            Container(
+                margin:
+                    const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+                height: 40.0,
+                child: Center(
+                    child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    const Text('Already have an account?'),
+                    SizedBox(
+                      width: 110.0,
+                      height: 50.0,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text('You clicked SignUp.')));
+                        },
+                        child: const Text('Sign in'),
+                      ),
+                    ),
+                  ],
+                ))),
           ],
         )),
       ),
     );
   }
+
+  void setState(Null Function() param0) {}
 }
 
 class MyHomePage extends StatefulWidget {
@@ -108,6 +204,288 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
+
+  /*
+
+  Container(
+              decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+                  border: Border.all(color: Colors.white)),
+              height: 80.0,
+              // width: 300.0,
+              // padding: EdgeInsets.all(30.0),
+              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+// color: Colors.white,
+              child: const Center(
+                child: Text('Container 1'),
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+                  border: Border.all(color: Colors.black)),
+              height: 80.0,
+              // width: 300.0,
+              // padding: EdgeInsets.all(30.0),
+              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+// color: Colors.white,
+              child: const Center(
+                child: Text('Container 2'),
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+                  border: Border.all(color: Colors.yellow)),
+              height: 80.0,
+              // width: 300.0,
+              // padding: EdgeInsets.all(30.0),
+              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+// color: Colors.white,
+              child: const Center(
+                child: Text('Container 3'),
+              ),
+            ),
+   */
+
+  //SignUp Container
+  /*
+  children: <Widget>[
+            const Center(
+              child: Text(
+                'Sign Up',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+            ),
+            const Center(
+              child: Text(
+                'Create account by filling up all the below details',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 10,
+                    color: Colors.grey),
+              ),
+            ),
+            //Full Name TextField
+            Container(
+              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+              child: const TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Enter Full Name*',
+                ),
+              ),
+            ),
+            //Email Address TextField
+            Container(
+              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+              child: const TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Enter Email Address*',
+                ),
+              ),
+            ),
+            //Password TextField
+            Container(
+              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+              child: const TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Enter Password*',
+                ),
+              ),
+            ),
+            //Confirm Password TextField
+            Container(
+              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+              child: const TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Confirm Password*',
+                ),
+              ),
+            ),
+            // T & Cs Label
+            Container(
+                margin: const EdgeInsets.only(left: 10.0, top: 0.0, right: 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Checkbox(
+                      checkColor: Colors.white,
+                      // fillColor: Colors.red,
+                      value: true,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          var isChecked = value!;
+                        });
+                      },
+                    ),
+                    const Text(
+                      'I have read and agreed to the Terms & Conditions',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 12,
+                          color: Colors.grey),
+                    ),
+                  ],
+                )),
+            //Sign up Button
+            Container(
+              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+              width: 280.0,
+              child: ElevatedButton(
+                // onPressed: () {
+                //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                //       content: Text('You clicked ElevatedButton.')));
+                // },
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('You clicked SignUp.')));
+                },
+                child: const Text('Sign up'),
+              ),
+            ),
+            //Sign In Button
+            Container(
+                margin:
+                    const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+                height: 40.0,
+                child: Center(
+                    child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    const Text('Already have an account?'),
+                    SizedBox(
+                      width: 110.0,
+                      height: 50.0,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text('You clicked SignUp.')));
+                        },
+                        child: const Text('Sign in'),
+                      ),
+                    ),
+                  ],
+                ))),
+          ],
+  */
+
+  //SignIn Container
+  /*
+  children: <Widget>[
+            const Center(
+              child: Text(
+                'Sign In',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+            ),
+            //Email Address TextField
+            Container(
+              margin: const EdgeInsets.only(left: 30.0, top: 20.0, right: 30.0),
+              child: const TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Enter Email Address*',
+                ),
+              ),
+            ),
+            //Password TextField
+            Container(
+              margin: const EdgeInsets.only(left: 30.0, top: 30.0, right: 30.0),
+              child: const TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Enter Password*',
+                ),
+              ),
+            ),
+            // T & Cs Label
+            Container(
+                margin: const EdgeInsets.only(left: 10.0, top: 0.0, right: 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Checkbox(
+                      checkColor: Colors.white,
+                      // fillColor: Colors.red,
+                      value: true,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          var isChecked = value!;
+                        });
+                      },
+                    ),
+                    const Text(
+                      'I have read and agreed to the Terms & Conditions',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 12,
+                          color: Colors.grey),
+                    ),
+                  ],
+                )),
+            //Sign up Button
+            Container(
+              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+              width: 280.0,
+              child: ElevatedButton(
+                // onPressed: () {
+                //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                //       content: Text('You clicked ElevatedButton.')));
+                // },
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('You clicked SignIn')));
+                },
+                child: const Text('Sign In'),
+              ),
+            ),
+            //Sign In Button
+            Container(
+                margin:
+                    const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+                height: 40.0,
+                child: Center(
+                    child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    const Text('Dont have an account?'),
+                    SizedBox(
+                      width: 110.0,
+                      height: 50.0,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text('You clicked SignUp.')));
+                        },
+                        child: const Text('Sign up'),
+                      ),
+                    ),
+                  ],
+                ))),
+          ],
+  */
+
+  //Verify Email Container
+
+  //Forgot Password Container
+
+  //Create New Password Container
+
+  //Password Changed Successfully Container
 
   @override
   Widget build(BuildContext context) {
