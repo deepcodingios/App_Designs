@@ -36,38 +36,31 @@ class MyApp extends StatelessWidget {
         ),
         body: SafeArea(
             child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            const Center(
-              child: Text(
-                'Sign Up',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-              ),
+            const SizedBox(
+              height: 10.0,
+            ),
+            const CircleAvatar(
+              radius: 40.0,
+              backgroundImage: AssetImage('images/maha-periyava.png'),
+            ),
+            const SizedBox(
+              height: 20.0,
             ),
             const Center(
               child: Text(
-                'Create account by filling up all the below details',
+                'Sign In',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 10,
-                    color: Colors.grey),
-              ),
-            ),
-            //Full Name TextField
-            Container(
-              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
-              child: const TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Enter Full Name*',
-                ),
+                    fontFamily: 'Pacifico',
+                    fontSize: 20),
               ),
             ),
             //Email Address TextField
             Container(
-              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+              margin: const EdgeInsets.only(left: 30.0, top: 20.0, right: 30.0),
               child: const TextField(
                 obscureText: true,
                 decoration: InputDecoration(
@@ -78,23 +71,12 @@ class MyApp extends StatelessWidget {
             ),
             //Password TextField
             Container(
-              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+              margin: const EdgeInsets.only(left: 30.0, top: 30.0, right: 30.0),
               child: const TextField(
                 obscureText: true,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Enter Password*',
-                ),
-              ),
-            ),
-            //Confirm Password TextField
-            Container(
-              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
-              child: const TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Confirm Password*',
                 ),
               ),
             ),
@@ -134,9 +116,9 @@ class MyApp extends StatelessWidget {
                 // },
                 onPressed: () {
                   ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('You clicked SignUp.')));
+                      const SnackBar(content: Text('You clicked SignIn')));
                 },
-                child: const Text('Sign up'),
+                child: const Text('Sign In'),
               ),
             ),
             //Sign In Button
@@ -149,7 +131,11 @@ class MyApp extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    const Text('Already have an account?'),
+                    Container(
+                      margin: const EdgeInsets.only(
+                          left: 10.0, top: 15.0, right: 10.0),
+                      child: const Text('Don\'t have an account?'),
+                    ),
                     SizedBox(
                       width: 110.0,
                       height: 50.0,
@@ -159,7 +145,7 @@ class MyApp extends StatelessWidget {
                               const SnackBar(
                                   content: Text('You clicked SignUp.')));
                         },
-                        child: const Text('Sign in'),
+                        child: const Text('Sign up'),
                       ),
                     ),
                   ],
