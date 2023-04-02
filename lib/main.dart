@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'signup.dart';
+import 'package:flutter/services.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const SignUp());
+  SystemChannels.textInput.invokeMethod('TextInput.hide');
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+  // final _messangerKey = GlobalKey<ScaffoldMessengerState>();
 
   // This widget is the root of your application.
   @override
@@ -13,27 +17,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
+      // scaffoldMessengerKey: _messangerKey,
       home: Scaffold(
         backgroundColor: Colors.white,
-        // appBar: AppBar(
-        //   title: const Center(
-        //     child: Text(
-        //       'SGD Stock',
-        //       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
-        //     ),
-        //   ),
-        // ),
         body: SafeArea(
             child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -134,6 +122,8 @@ class MyApp extends StatelessWidget {
                 onPressed: () {
                   ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('You clicked SignIn')));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const SignUp()));
                 },
                 child: const Text('Sign In'),
               ),
@@ -174,6 +164,225 @@ class MyApp extends StatelessWidget {
   }
 
   void setState(Null Function() param0) {}
+}
+
+class SignUp extends StatefulWidget {
+  const SignUp({Key? key}) : super(key: key);
+
+  @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Scaffold(
+        resizeToAvoidBottomInset: true,
+        backgroundColor: Colors.white,
+        body: SingleChildScrollView(
+          child: SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                // SizedBox(
+                //   height: 5.0,
+                // ),
+                Center(
+                    child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      'images/logo_1.png',
+                      height: 40.0,
+                      width: 100.0,
+                    ),
+                    Image.asset(
+                      'images/logo_2.png',
+                      height: 50.0,
+                      width: 210.0,
+                    ),
+                  ],
+                )),
+                // const CircleAvatar(
+                //   radius: 40.0,
+                //   backgroundImage: AssetImage('images/maha-periyava.png'),
+                // ),
+                const SizedBox(
+                  height: 25.0,
+                ),
+                const Center(
+                  child: Text(
+                    'Sign Up',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  ),
+                ),
+                const SizedBox(
+                  height: 15.0,
+                ),
+                const Center(
+                  child: Text(
+                    'Create account by filling up all the below details',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12,
+                        color: Colors.grey),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                //Full Name TextField
+                Container(
+                  margin:
+                      const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+                  child: const TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Enter Full Name*',
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                //Email Address TextField
+                Container(
+                  margin:
+                      const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+                  child: const TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Enter Email Address*',
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                //Password TextField
+                Container(
+                  margin:
+                      const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+                  child: const TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Enter Password*',
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                //Confirm Password TextField
+                Container(
+                  margin:
+                      const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+                  child: const TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Confirm Password*',
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                // T & Cs Label
+                Container(
+                    margin:
+                        const EdgeInsets.only(left: 10.0, top: 0.0, right: 0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Checkbox(
+                          checkColor: Colors.white,
+                          // fillColor: Colors.red,
+                          value: true,
+                          onChanged: (bool? value) {
+                            setState(() {
+                              var isChecked = value!;
+                            });
+                          },
+                        ),
+                        const Text(
+                          'I have read and agreed to the Terms & Conditions',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12,
+                              color: Colors.grey),
+                        ),
+                      ],
+                    )),
+                //Sign up Button
+                Container(
+                  margin:
+                      const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+                  width: 280.0,
+                  child: ElevatedButton(
+                    // onPressed: () {
+                    //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    //       content: Text('You clicked ElevatedButton.')));
+                    // },
+                    style: ElevatedButton.styleFrom(
+                      primary: Color.fromRGBO(0, 149, 187, 1),
+                    ),
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('You clicked SignUp.')));
+                    },
+                    child: const Text('Sign up'),
+                  ),
+                ),
+                //Sign In Button
+                Container(
+                    margin: const EdgeInsets.only(
+                        left: 30.0, top: 10.0, right: 30.0),
+                    height: 30.0,
+                    child: Center(
+                        child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        Container(
+                          margin: const EdgeInsets.only(
+                              left: 10.0, top: 8.0, right: 10.0),
+                          child: const Text('Already have an account?'),
+                        ),
+                        SizedBox(
+                          width: 110.0,
+                          height: 20.0,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: Color.fromRGBO(0, 149, 187, 1),
+                            ),
+                            onPressed: () {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content: Text('You clicked SignUp.')));
+                            },
+                            child: const Text('Sign in'),
+                          ),
+                        ),
+                      ],
+                    ))),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 class MyHomePage extends StatefulWidget {
@@ -250,137 +459,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
    */
-
-  //SignUp Container
-  /*
-  children: <Widget>[
-            const Center(
-              child: Text(
-                'Sign Up',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-              ),
-            ),
-            const Center(
-              child: Text(
-                'Create account by filling up all the below details',
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 10,
-                    color: Colors.grey),
-              ),
-            ),
-            //Full Name TextField
-            Container(
-              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
-              child: const TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Enter Full Name*',
-                ),
-              ),
-            ),
-            //Email Address TextField
-            Container(
-              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
-              child: const TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Enter Email Address*',
-                ),
-              ),
-            ),
-            //Password TextField
-            Container(
-              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
-              child: const TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Enter Password*',
-                ),
-              ),
-            ),
-            //Confirm Password TextField
-            Container(
-              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
-              child: const TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Confirm Password*',
-                ),
-              ),
-            ),
-            // T & Cs Label
-            Container(
-                margin: const EdgeInsets.only(left: 10.0, top: 0.0, right: 0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Checkbox(
-                      checkColor: Colors.white,
-                      // fillColor: Colors.red,
-                      value: true,
-                      onChanged: (bool? value) {
-                        setState(() {
-                          var isChecked = value!;
-                        });
-                      },
-                    ),
-                    const Text(
-                      'I have read and agreed to the Terms & Conditions',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12,
-                          color: Colors.grey),
-                    ),
-                  ],
-                )),
-            //Sign up Button
-            Container(
-              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
-              width: 280.0,
-              child: ElevatedButton(
-                // onPressed: () {
-                //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                //       content: Text('You clicked ElevatedButton.')));
-                // },
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('You clicked SignUp.')));
-                },
-                child: const Text('Sign up'),
-              ),
-            ),
-            //Sign In Button
-            Container(
-                margin:
-                    const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
-                height: 40.0,
-                child: Center(
-                    child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    const Text('Already have an account?'),
-                    SizedBox(
-                      width: 110.0,
-                      height: 50.0,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                  content: Text('You clicked SignUp.')));
-                        },
-                        child: const Text('Sign in'),
-                      ),
-                    ),
-                  ],
-                ))),
-          ],
-  */
 
   //SignIn Container
   /*
