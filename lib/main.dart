@@ -26,26 +26,43 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         backgroundColor: Colors.white,
-        appBar: AppBar(
-          title: const Center(
-            child: Text(
-              'SGD Stock',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
-            ),
-          ),
-        ),
+        // appBar: AppBar(
+        //   title: const Center(
+        //     child: Text(
+        //       'SGD Stock',
+        //       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+        //     ),
+        //   ),
+        // ),
         body: SafeArea(
             child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            const SizedBox(
+            SizedBox(
               height: 10.0,
             ),
-            const CircleAvatar(
-              radius: 40.0,
-              backgroundImage: AssetImage('images/maha-periyava.png'),
-            ),
+            Center(
+                child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'images/logo_1.png',
+                  height: 40.0,
+                  width: 100.0,
+                ),
+                Image.asset(
+                  'images/logo_2.png',
+                  height: 100.0,
+                  width: 210.0,
+                ),
+              ],
+            )),
+            // const CircleAvatar(
+            //   radius: 40.0,
+            //   backgroundImage: AssetImage('images/maha-periyava.png'),
+            // ),
             const SizedBox(
               height: 20.0,
             ),
@@ -54,7 +71,7 @@ class MyApp extends StatelessWidget {
                 'Sign In',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontFamily: 'Pacifico',
+                    // fontFamily: 'Pacifico',
                     fontSize: 20),
               ),
             ),
