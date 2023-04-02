@@ -37,6 +37,8 @@ flutter:
      - images/maha-periyava.png
      - images/logo_1.png
      - images/logo_2.png
+     - images/verifyEmail.png
+     - images/password_change.png
   fonts:
   - family: Pacifico
     fonts:

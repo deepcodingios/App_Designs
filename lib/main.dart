@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'signup.dart';
-import 'package:flutter/services.dart';
+// import 'package:flutter/services.dart';
 
 void main() {
-  runApp(const SignUp());
-  SystemChannels.textInput.invokeMethod('TextInput.hide');
+  runApp(const PasswordChangeConfirmation());
+  // SystemChannels.textInput.invokeMethod('TextInput.hide');
 }
 
 class MyApp extends StatelessWidget {
@@ -376,6 +376,182 @@ class _SignUpState extends State<SignUp> {
                         ),
                       ],
                     ))),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class VerifyEmail extends StatefulWidget {
+  const VerifyEmail({Key? key}) : super(key: key);
+
+  @override
+  State<VerifyEmail> createState() => _VerifyEmailState();
+}
+
+class _VerifyEmailState extends State<VerifyEmail> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'SGD Stock',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Scaffold(
+        resizeToAvoidBottomInset: true,
+        backgroundColor: Colors.white,
+        body: SingleChildScrollView(
+          child: SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(
+                  height: 200.0,
+                ),
+                Container(
+                  child: Image.asset('images/verifyEmail.png'),
+                  width: 300.0,
+                  height: 200.0,
+                ),
+                const SizedBox(
+                  height: 25.0,
+                ),
+                const Center(
+                  child: Text(
+                    'Verify your Email',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  ),
+                ),
+                const SizedBox(
+                  height: 15.0,
+                ),
+                const Center(
+                  child: Text(
+                    'We\'ve sent a reset password link to your email.',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12,
+                        color: Colors.grey),
+                  ),
+                ),
+                const SizedBox(
+                  height: 15.0,
+                ),
+
+                //Sign up Button
+                Container(
+                  margin:
+                      const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+                  width: 280.0,
+                  height: 50.0,
+                  child: ElevatedButton(
+                    // onPressed: () {
+                    //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    //       content: Text('You clicked ElevatedButton.')));
+                    // },
+                    style: ElevatedButton.styleFrom(
+                      primary: Color.fromRGBO(0, 149, 187, 1),
+                    ),
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text('You clicked Email Button.')));
+                    },
+                    child: const Text('Take me to Email'),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class PasswordChangeConfirmation extends StatefulWidget {
+  const PasswordChangeConfirmation({Key? key}) : super(key: key);
+
+  @override
+  State<PasswordChangeConfirmation> createState() =>
+      _PasswordChangeConfirmationState();
+}
+
+class _PasswordChangeConfirmationState
+    extends State<PasswordChangeConfirmation> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'SGD Stock',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Scaffold(
+        resizeToAvoidBottomInset: true,
+        backgroundColor: Colors.white,
+        body: SingleChildScrollView(
+          child: SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(
+                  height: 200.0,
+                ),
+                Container(
+                  child: Image.asset('images/password_change.png'),
+                  width: 300.0,
+                  height: 200.0,
+                ),
+                const SizedBox(
+                  height: 25.0,
+                ),
+                const Center(
+                  child: Text(
+                    'Password changed Successfully!',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  ),
+                ),
+                const SizedBox(
+                  height: 15.0,
+                ),
+                const Center(
+                  child: Text(
+                    'Your password has been changed successfully',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12,
+                        color: Colors.grey),
+                  ),
+                ),
+                const SizedBox(
+                  height: 35.0,
+                ),
+
+                //Sign up Button
+                Container(
+                  margin:
+                      const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+                  width: 280.0,
+                  height: 50.0,
+                  child: ElevatedButton(
+                    // onPressed: () {
+                    //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    //       content: Text('You clicked ElevatedButton.')));
+                    // },
+                    style: ElevatedButton.styleFrom(
+                      primary: Color.fromRGBO(0, 149, 187, 1),
+                    ),
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text('You clicked Email Button.')));
+                    },
+                    child: const Text('Sign In'),
+                  ),
+                ),
               ],
             ),
           ),
