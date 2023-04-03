@@ -3,7 +3,7 @@ import 'signup.dart';
 // import 'package:flutter/services.dart';
 
 void main() {
-  runApp(const PasswordChangeConfirmation());
+  runApp(const ForgotPassword());
   // SystemChannels.textInput.invokeMethod('TextInput.hide');
 }
 
@@ -556,6 +556,131 @@ class _PasswordChangeConfirmationState
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class ForgotPassword extends StatefulWidget {
+  const ForgotPassword({Key? key}) : super(key: key);
+
+  @override
+  State<ForgotPassword> createState() => _ForgotPasswordState();
+}
+
+class _ForgotPasswordState extends State<ForgotPassword> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      // scaffoldMessengerKey: _messangerKey,
+      home: Scaffold(
+        backgroundColor: Colors.white,
+        body: SafeArea(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            SizedBox(
+              height: 10.0,
+            ),
+            Container(
+              child: Image.asset('images/forgot_password.png'),
+              width: 200.0,
+              height: 200.0,
+            ),
+            // const CircleAvatar(
+            //   radius: 40.0,
+            //   backgroundImage: AssetImage('images/maha-periyava.png'),
+            // ),
+            // const SizedBox(
+            //   height: 5.0,
+            // ),
+            const Center(
+              child: Text(
+                'Forgot Password?',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    // fontFamily: 'Pacifico',
+                    fontSize: 20),
+              ),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            SizedBox(
+              width: 250.0,
+              child: Text(
+                'We’ll send a link to your email. Please verify your email to continue',
+                style: TextStyle(color: Colors.grey),
+              ),
+            ),
+            //Email Address TextField
+            Container(
+              margin: const EdgeInsets.only(left: 30.0, top: 20.0, right: 30.0),
+              child: const TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Enter Email Address*',
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            //Sign up Button
+            Container(
+              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+              width: 280.0,
+              child: ElevatedButton(
+                // onPressed: () {
+                //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                //       content: Text('You clicked ElevatedButton.')));
+                // },
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('You clicked SignIn')));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const SignUp()));
+                },
+                child: const Text('Continue'),
+              ),
+            ),
+            //Sign In Button
+            Container(
+                margin:
+                    const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+                height: 40.0,
+                child: Center(
+                    child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Container(
+                      margin: const EdgeInsets.only(
+                          left: 10.0, top: 15.0, right: 10.0),
+                      child: const Text('Don\'t have an account?'),
+                    ),
+                    SizedBox(
+                      width: 110.0,
+                      height: 50.0,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text('You clicked SignUp.')));
+                        },
+                        child: const Text('Sign up'),
+                      ),
+                    ),
+                  ],
+                ))),
+          ],
+        )),
       ),
     );
   }

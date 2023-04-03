@@ -39,6 +39,7 @@ flutter:
      - images/logo_2.png
      - images/verifyEmail.png
      - images/password_change.png
+     - images/forgot_password.png
   fonts:
   - family: Pacifico
     fonts:
