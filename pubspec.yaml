@@ -40,6 +40,7 @@ flutter:
      - images/verifyEmail.png
      - images/password_change.png
      - images/forgot_password.png
+     - images/create_password.png
   fonts:
   - family: Pacifico
     fonts:

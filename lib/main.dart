@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'signup.dart';
+// import 'signup.dart';
 // import 'package:flutter/services.dart';
 
 void main() {
-  runApp(const ForgotPassword());
+  runApp(const CreatePassword());
   // SystemChannels.textInput.invokeMethod('TextInput.hide');
 }
 
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
             Center(
@@ -335,7 +335,7 @@ class _SignUpState extends State<SignUp> {
                     //       content: Text('You clicked ElevatedButton.')));
                     // },
                     style: ElevatedButton.styleFrom(
-                      primary: Color.fromRGBO(0, 149, 187, 1),
+                      primary: const Color.fromRGBO(0, 149, 187, 1),
                     ),
                     onPressed: () {
                       ScaffoldMessenger.of(context).showSnackBar(
@@ -364,7 +364,7 @@ class _SignUpState extends State<SignUp> {
                           height: 20.0,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              primary: Color.fromRGBO(0, 149, 187, 1),
+                              primary: const Color.fromRGBO(0, 149, 187, 1),
                             ),
                             onPressed: () {
                               ScaffoldMessenger.of(context).showSnackBar(
@@ -409,7 +409,7 @@ class _VerifyEmailState extends State<VerifyEmail> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                SizedBox(
+                const SizedBox(
                   height: 200.0,
                 ),
                 Container(
@@ -561,6 +561,109 @@ class _PasswordChangeConfirmationState
   }
 }
 
+class CreatePassword extends StatefulWidget {
+  const CreatePassword({Key? key}) : super(key: key);
+
+  @override
+  State<CreatePassword> createState() => _CreatePasswordState();
+}
+
+class _CreatePasswordState extends State<CreatePassword> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      // scaffoldMessengerKey: _messangerKey,
+      home: Scaffold(
+        backgroundColor: Colors.white,
+        body: SafeArea(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            SizedBox(
+              height: 10.0,
+            ),
+            Container(
+              child: Image.asset('images/create_password.png'),
+              width: 200.0,
+              height: 200.0,
+            ),
+            const Center(
+              child: Text(
+                'Forgot Password?',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    // fontFamily: 'Pacifico',
+                    fontSize: 20),
+              ),
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            SizedBox(
+              width: 300.0,
+              child: Text(
+                'Your password has been reset. Please enter a strong password that you can remember',
+                style: TextStyle(color: Colors.grey),
+              ),
+            ),
+            //Email Address TextField
+            Container(
+              margin: const EdgeInsets.only(left: 30.0, top: 20.0, right: 30.0),
+              child: const TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Enter New Password*',
+                ),
+              ),
+            ),
+            // SizedBox(
+            //   height: 5.0,
+            // ),
+
+            Container(
+              margin: const EdgeInsets.only(left: 30.0, top: 20.0, right: 30.0),
+              child: const TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Confirm Password*',
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            //Sign up Button
+            Container(
+              margin: const EdgeInsets.only(left: 30.0, top: 0.0, right: 30.0),
+              width: 280.0,
+              child: ElevatedButton(
+                // onPressed: () {
+                //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                //       content: Text('You clicked ElevatedButton.')));
+                // },
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('You clicked SignIn')));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const SignUp()));
+                },
+                child: const Text('Continue'),
+              ),
+            ),
+          ],
+        )),
+      ),
+    );
+  }
+}
+
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({Key? key}) : super(key: key);
 
@@ -592,13 +695,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               width: 200.0,
               height: 200.0,
             ),
-            // const CircleAvatar(
-            //   radius: 40.0,
-            //   backgroundImage: AssetImage('images/maha-periyava.png'),
-            // ),
-            // const SizedBox(
-            //   height: 5.0,
-            // ),
             const Center(
               child: Text(
                 'Forgot Password?',
